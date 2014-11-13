@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Stonepath_ConfigurableStock>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.1.0</version>
+    </Stonepath_ConfigurableStock>
+  </modules>
+</config>
