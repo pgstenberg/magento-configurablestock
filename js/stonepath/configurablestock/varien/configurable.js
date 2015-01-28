@@ -1,4 +1,6 @@
 
+
+
 function getAttributeIdFromElement(element){
 	return element.id.replace(/[a-z]*/, '');
 }
@@ -10,11 +12,15 @@ function getOptionIndexFromValue(options,value){
     return -1;
 }
 
-Product.Config.prototype.fillSelect  = Product.Config.prototype.fillSelect.wrap(function(parentMethod, element) {
+
+//TO-DO: fix disable after first select
+
+function relabelOption(parentMethod, element) {
 	parentMethod(element);
-	
+    
 	//GET ATTRIBUTE_ID FROM ELEMENT
 	var attribute_id = getAttributeIdFromElement(element);
+	
 	//GET ALL OPTIONS
     var options = this.getAttributeOptions(attribute_id);	
 	
@@ -34,11 +40,18 @@ Product.Config.prototype.fillSelect  = Product.Config.prototype.fillSelect.wrap(
 				if(option_disable)
 					element.options[option_index].disabled = true;
 				
-				element.options[option_index].label = element.options[option_index].label + " (" + option_label +")";
-				element.options[option_index].text = element.options[option_index].text + " (" + option_label +")";
+				element.options[option_index].text = this.getOptionLabel(element.options[option_index].config, element.options[option_index].config.price) + " (" + option_label +")";
 			}
 		}
 	}
 	
-	
-});
+
+
+}
+
+
+//Wrapped for Magento ver 1.9
+Product.Config.prototype.reloadOptionLabels  = Product.Config.prototype.reloadOptionLabels.wrap(relabelOption);
+
+//Wrapped for Magento < ver 1.8
+Product.Config.prototype.fillSelect  = Product.Config.prototype.fillSelect.wrap(relabelOption);
