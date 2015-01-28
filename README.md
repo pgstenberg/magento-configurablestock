@@ -13,11 +13,8 @@ Installation
 Licensing
 ---------------------------
 Copyright 2014, Per-Gustaf Stenberg
-
 This work is licensed under the Open Software License (OSL 3.0)
 http://opensource.org/licenses/osl-3.0.php
-
----------------------------
 
 <p align="center"><a href="http://stonepath.se"><img src="http://stonepath.se/stonepath_logo-small-black.png" alt="Stonepath Logo"/></a></p>
 
