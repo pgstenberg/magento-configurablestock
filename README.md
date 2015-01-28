@@ -1,5 +1,4 @@
-![Stonepath logo]
-(http://stonepath.se/stonepath_logo-small-black.png)
+![Stonepath logo](http://stonepath.se/stonepath_logo-small-black.png)
 
 ConfigurableStock - Module for Magento
 ==================================
