@@ -1,4 +1,4 @@
-![Stonepath logo](http://stonepath.se/stonepath_logo-small-black.png)
+<p align="center"><a href="http://stonepath.se"><img src="http://stonepath.se/stonepath_logo-small-black.png" alt="Stonepath Logo"/></a></p>
 
 ConfigurableStock - Module for Magento
 ==================================
