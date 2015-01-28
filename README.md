@@ -1,3 +1,6 @@
+![Stonepath logo]
+(http://stonepath.se/stonepath_logo-small-black.png)
+
 ConfigurableStock - Module for Magento
 ==================================
 A simple module that shows the current stock status of all corresponding child-product to a configurable-product.
