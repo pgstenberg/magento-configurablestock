@@ -1,9 +1,15 @@
 
 
-
+/*
+* Getting the attribute-id by using regexp in the specified element
+*/
 function getAttributeIdFromElement(element){
 	return element.id.replace(/[a-z]*/, '');
 }
+
+/*
+* Get the index of the an option with specific value
+*/
 function getOptionIndexFromValue(options,value){
 	for(var i=0;i<options.length;i++){
         if(value == options[i].value)
@@ -15,6 +21,9 @@ function getOptionIndexFromValue(options,value){
 
 //TO-DO: fix disable after first select
 
+/*
+* Calling the parent method and making some own modifications on the element
+*/
 function relabelOption(parentMethod, element) {
 	parentMethod(element);
     

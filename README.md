@@ -4,9 +4,7 @@ A simple module that shows the current stock status of all corresponding child-p
 
 Installation
 -----------------------------------------------------
-- Copy all content from the 'app/code/local/Stonepath/ConfigurableStock' to the corresponding directory in your Magento installation.
-- Copy the javascripts in the 'js/stonepath/configurablestock' as well to the corresponding directory in your Magento installation.
-- Lastly copy the 'app/etc/modules/Stonepath_ConfigurableStock.xml' to your 'app/etc/modules/' folder.
+- Copy all content into your Magento root folder.
 - Flush cache and Reindex.
 - Enjoy!
 

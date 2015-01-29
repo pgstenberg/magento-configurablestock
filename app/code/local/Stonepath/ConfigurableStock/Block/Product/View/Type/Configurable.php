@@ -1,16 +1,32 @@
 <?php
 
+/**
+ * Custom ConfigurableProductBlock that extends the core ConfigurableProductBlock
+ * 
+ * This class prepares and sets the additionalconfig data that are utilized in the javascripts.
+ * 
+ *
+ * @author Per-Gustaf Stenberg <per-gustaf.stenberg@stonepath.se>
+ * @version 0.1.0
+ */
+
 class Stonepath_ConfigurableStock_Block_Product_View_Type_Configurable extends Mage_Catalog_Block_Product_View_Type_Configurable
 {
 	
 	public static $collectionName = 'stonepath_confstock';
 	
+	/**
+	* Adding the additional javascript that are needed for updating the dropdownbox.
+	*/
 	protected function _prepareLayout()
     {
        	$this->getLayout()->getBlock('head')->addJs('stonepath/configurablestock/varien/configurable.js');
         return parent::_prepareLayout();
     }
 
+	/**
+	* Override the getAdditionalConfig method to add the extra configuration data needed for the dropdownbox.
+	*/
     protected function _getAdditionalConfig()
     {
     	$childProducts = $this->getProduct()->getTypeInstance(true)->getUsedProducts(null, $this->getProduct());
@@ -30,10 +46,14 @@ class Stonepath_ConfigurableStock_Block_Product_View_Type_Configurable extends M
             	
             		
     			if($attribute->getPosition() == $highest_position){
+    			
+    				//Disable option if out of stock
     				$return_array[self::$collectionName][$productAttributeId][$attributeValue]['disable'] = !$inStock;
     				
+    				//Checks whether product is in stock
     				if($inStock){
     					
+    					//Checking the outofstock threshold
     					if($productQty > $stock_threshold){
     						$return_array[self::$collectionName][$productAttributeId][$attributeValue]['label'] = $this->__('In stock: %s',intval($productQty));
     					}else{
@@ -56,6 +76,9 @@ class Stonepath_ConfigurableStock_Block_Product_View_Type_Configurable extends M
         return $return_array;
     }
     
+    /**
+    * Returns the highest attribute position
+    */
     private function getHighestAttributePosition(){
     	$lowest_position = 0;
     	foreach ($this->getAllowAttributes() as $attribute) {
@@ -67,6 +90,9 @@ class Stonepath_ConfigurableStock_Block_Product_View_Type_Configurable extends M
     	return $lowest_position;
     }
     
+    /*
+    * Returns all products that are saleable or 'allowed' to be shown
+    */
 	public function getAllowProducts()
     {
     	$pre_value = Mage::helper('catalog/product')->getSkipSaleableCheck();
