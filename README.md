@@ -1,6 +1,6 @@
-ConfigurableStock - Module for Magento
+ConfigurableStock
 ==================================
-A simple module that shows the current stock status of all products which are associated with another configurable product.
+A simple magento-module that shows the current stock status of all products which are associated with another configurable product.
 
 Installation
 -----------------------------------------------------
