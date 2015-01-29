@@ -29,13 +29,14 @@ function relabelOption(parentMethod, element) {
 		var option_id = options[i].id;
 		
 		//CHECKING IF ATTRIBUTE IS NOT BASE
-		if(!this.config.stocktest[attribute_id][option_id].base){
+		if(!this.config.stonepath_confstock[attribute_id][option_id].base){
 			var option_index = getOptionIndexFromValue(element.options,option_id);	
+			
 			
 			//CHECK IF ACTIVE SELECT
 			if(option_index != -1){
-				var option_disable = this.config.stocktest[attribute_id][option_id]['disable'];
-				var option_label = this.config.stocktest[attribute_id][option_id]['label'];
+				var option_disable = this.config.stonepath_confstock[attribute_id][option_id]['disable'];
+				var option_label = this.config.stonepath_confstock[attribute_id][option_id]['label'];
 				
 				if(option_disable)
 					element.options[option_index].disabled = true;
@@ -52,6 +53,7 @@ function relabelOption(parentMethod, element) {
 
 //Wrapped for Magento ver 1.9
 Product.Config.prototype.reloadOptionLabels  = Product.Config.prototype.reloadOptionLabels.wrap(relabelOption);
+
 
 //Wrapped for Magento < ver 1.8
 Product.Config.prototype.fillSelect  = Product.Config.prototype.fillSelect.wrap(relabelOption);

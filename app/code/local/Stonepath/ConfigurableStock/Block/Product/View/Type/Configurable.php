@@ -3,6 +3,8 @@
 class Stonepath_ConfigurableStock_Block_Product_View_Type_Configurable extends Mage_Catalog_Block_Product_View_Type_Configurable
 {
 	
+	public static $collectionName = 'stonepath_confstock';
+	
 	protected function _prepareLayout()
     {
        	$this->getLayout()->getBlock('head')->addJs('stonepath/configurablestock/varien/configurable.js');
@@ -28,24 +30,24 @@ class Stonepath_ConfigurableStock_Block_Product_View_Type_Configurable extends M
             	
             		
     			if($attribute->getPosition() == $highest_position){
-    				$return_array['stocktest'][$productAttributeId][$attributeValue]['disable'] = !$inStock;
+    				$return_array[self::$collectionName][$productAttributeId][$attributeValue]['disable'] = !$inStock;
     				
     				if($inStock){
     					
     					if($productQty > $stock_threshold){
-    						$return_array['stocktest'][$productAttributeId][$attributeValue]['label'] = $this->__('In stock: %s',intval($productQty));
+    						$return_array[self::$collectionName][$productAttributeId][$attributeValue]['label'] = $this->__('In stock: %s',intval($productQty));
     					}else{
-    						$return_array['stocktest'][$productAttributeId][$attributeValue]['label'] = $this->__('Only %s left',intval($productQty));
+    						$return_array[self::$collectionName][$productAttributeId][$attributeValue]['label'] = $this->__('Only %s left',intval($productQty));
     					}
     						
     					
     				}else{
-    					$return_array['stocktest'][$productAttributeId][$attributeValue]['label'] = $this->__('Out of stock');
+    					$return_array[self::$collectionName][$productAttributeId][$attributeValue]['label'] = $this->__('Out of stock');
     				}
     				
-    				$return_array['stocktest'][$productAttributeId][$attributeValue]['base'] = false;
+    				$return_array[self::$collectionName][$productAttributeId][$attributeValue]['base'] = false;
     			}else{
-    				$return_array['stocktest'][$productAttributeId][$attributeValue]['base'] = true;
+    				$return_array[self::$collectionName][$productAttributeId][$attributeValue]['base'] = true;
     			}
     		}
     	}

@@ -1,5 +1,3 @@
-<p align="center"><a href="http://stonepath.se"><img src="http://stonepath.se/stonepath_logo-small-black.png" alt="Stonepath Logo" target="_blank"/></a></p>
-
 ConfigurableStock - Module for Magento
 ==================================
 A simple module that shows the current stock status of all corresponding child-product to a configurable-product.
@@ -11,6 +9,16 @@ Installation
 - Lastly copy the 'app/etc/modules/Stonepath_ConfigurableStock.xml' to your 'app/etc/modules/' folder.
 - Flush cache and Reindex.
 - Enjoy!
+
+Features
+-----------------------------------------------------
+- Show quantity left in stock.
+- Taking into account the only X left Threshold.
+- Displays all associated products even if there are out of stock by disable them in the dropdown.
+
+Knows issues
+-----------------------------------------------------
+- Won't disable the out of stock product after initial select in dropbox (Only affecting the rwd theme in 1.9.x)
 
 Licensing
 ---------------------------
