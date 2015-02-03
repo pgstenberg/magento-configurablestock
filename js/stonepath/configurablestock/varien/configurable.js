@@ -19,7 +19,7 @@ function getOptionIndexFromValue(options,value){
 }
 
 
-//TO-DO: fix disable after first select
+//TO-DO: fix disable after first select!
 
 /*
 * Calling the parent method and making some own modifications on the element
