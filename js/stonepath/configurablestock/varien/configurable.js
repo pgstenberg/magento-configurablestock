@@ -1,7 +1,7 @@
 
 
 /*
-* Getting the attribute-id by using regexp in the specified element
+* Getting the attribute-id by using reg-exp in the specified element
 */
 function getAttributeIdFromElement(element){
 	return element.id.replace(/[a-z]*/, '');
