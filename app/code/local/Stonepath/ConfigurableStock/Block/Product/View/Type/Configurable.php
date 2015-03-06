@@ -95,19 +95,24 @@ class Stonepath_ConfigurableStock_Block_Product_View_Type_Configurable extends M
     */
 	public function getAllowProducts()
     {
+    	
     	$pre_value = Mage::helper('catalog/product')->getSkipSaleableCheck();
     	
     	Mage::helper('catalog/product')->setSkipSaleableCheck(true);
     	$products = parent::getAllowProducts();
     	Mage::helper('catalog/product')->setSkipSaleableCheck($pre_value);
     	
+    	$filtered_products = array();
+    	
     	foreach($products as $productKey => $product) {
-    		if($product->getStatus() == 2){
-    			unset($products[$productKey]);
+    		$statusModel = Mage::getModel('catalog/product')->getCollection()->addAttributeToSelect('status')->addAttributeToFilter('entity_id',$product->getID())->getFirstItem();
+    		if($statusModel->getStatus() != 2){
+    			$filtered_products[$productKey] = $product;
     		}
     	}
     	
-    	return $products;
+    	
+    	return $filtered_products;
     }
 	
 }
